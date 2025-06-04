@@ -1,21 +1,26 @@
-package java.app;
+package app;
 
+import app.controller.MainController;
+import app.view.MainView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.app.view.MainView;
 
 public class Main extends Application {
+
     @Override
     public void start(Stage primaryStage) {
-        MainView mainView = new MainView();
-        Scene scene = new Scene(mainView.getRoot(), 800, 600);
-        primaryStage.setTitle("Image Processor - Politechnika Wrocławska");
+        MainView view = new MainView();//tworze widok
+        new MainController(view); //tworzenie kontrolera i przekazanie mu widoku
+
+        Scene scene = new Scene(view.getRoot(), 800, 600);
+        primaryStage.setTitle("Aplikacja do przetwarzania obrazów");
         primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.show();//wyswietlanie okna
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch(args);//uruchomienie apki
     }
 }
+
