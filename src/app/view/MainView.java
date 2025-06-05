@@ -23,6 +23,7 @@ public class MainView {
     private final ImageView processedImageView = new ImageView();
     private final Label footer;
 
+    //widok główny
     public MainView() {
         // stopka
         this.footer = new Label("© Politechnika Wrocławska - Aplikacja przetwarzania obrazów");
@@ -72,8 +73,10 @@ public class MainView {
         root.setBottom(footer);
     }
 
+
+    //tworzenie nagłówka
     private HBox createHeader() {
-        //tworzenie nagłówka
+
         HBox header = new HBox(10);
         header.setPadding(new Insets(10));
         header.setAlignment(Pos.CENTER_LEFT);
@@ -97,8 +100,10 @@ public class MainView {
         return header;
     }
 
+
+    //pasek narzedzi
     private HBox createToolbar() {
-        //pasek narzedzi
+
         HBox topBar = new HBox(10);
         topBar.setPadding(new Insets(10));
         topBar.setAlignment(Pos.CENTER_LEFT);
@@ -106,8 +111,10 @@ public class MainView {
         return topBar;
     }
 
+
+    //przyciski obrotu
     private HBox createRotateButtons() {
-        //przyc iski obrotu
+
         HBox rotateBox = new HBox(10);
         rotateBox.setPadding(new Insets(5, 10, 10, 10));
         rotateBox.setAlignment(Pos.CENTER_LEFT);
@@ -115,8 +122,10 @@ public class MainView {
         return rotateBox;
     }
 
+
+    //pole na obrazy
     private HBox createImageArea() {
-        //pole na obrazy
+
         HBox imageBox = new HBox(10);
         imageBox.setPadding(new Insets(10));
         imageBox.setAlignment(Pos.CENTER);
@@ -135,6 +144,8 @@ public class MainView {
     public ImageView getProcessedImageView() { return processedImageView; }
     public Label getFooter() { return footer; }
 
+
+    //wyświetlanie komunikatu
     public void showToast(String message) {
         //wyświetlanie komunikatu
         Popup popup = new Popup();

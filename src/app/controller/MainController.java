@@ -19,21 +19,27 @@ public class MainController {
     private Image originalImage;//orginalny obraz
     private Image currentImage;//przetwarzany obraz
 
+
+
     public MainController(MainView view) {
         this.view = view;
         setupHandlers();
     }
 
+
+    //obsługa zdarzeń dla przycisków
     private void setupHandlers() {
-        //obsługa zdarzeń dla przycisków
+
         view.getLoadButton().setOnAction(e -> loadImage());
         view.getExecuteButton().setOnAction(e -> executeOperation());
         view.getRotateLeftButton().setOnAction(e -> rotateImage(-90));
         view.getRotateRightButton().setOnAction(e -> rotateImage(90));
     }
 
+
+    //wczytywanie obrazu z dysku
     private void loadImage() {
-        //wczytywanie obrazu z dysku
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Wybierz obraz");
         fileChooser.getExtensionFilters().addAll(
@@ -56,22 +62,27 @@ public class MainController {
         }
     }
 
+
+    //funkcja do włączania i wyłączania przycisków
     private void enableImageOperations(boolean enable) {
-        //funkcja do włączania i wyłączania przycisków
+
 
         view.getExecuteButton().setDisable(!enable);
         view.getRotateLeftButton().setDisable(!enable);
         view.getRotateRightButton().setDisable(!enable);
     }
 
+
+    //aktualizacja podglądu obrazu w interfejscie
     private void updateImageViews() {
-        //aktualizacja podglądu obrazu w interfejscie
+
         view.getOriginalImageView().setImage(originalImage);
         view.getProcessedImageView().setImage(currentImage);
     }
 
+    //wykonywanie wybranej operacji
     private void executeOperation() {
-        //wykonywanie wybranej operacji
+
         String operation = view.getOperationSelector().getValue();
         if (operation == null) {
             view.showToast("Wybierz operację z listy");
@@ -147,6 +158,8 @@ public class MainController {
         dialog.showAndWait();
     }
 
+
+    //negatyw
     private void applyNegative() {
         try {
             // Konwersja obrazu JavaFX do BufferedImage (AWT)
@@ -248,6 +261,8 @@ public class MainController {
         }
     }
 
+
+    //obracanie
     private void rotateImage(double angle) {
         try {
             BufferedImage input = SwingFXUtils.fromFXImage(currentImage, null);
