@@ -1,4 +1,4 @@
-# 🖼️ Aplikacja do Przetwarzania Obrazów w JavaFX
+#  Aplikacja do Przetwarzania Obrazów w JavaFX
 Autor: Aleksandra Cieciorowska 275412
 
 Uczelnia: Politechnika Wrocławska 🎓
